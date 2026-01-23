@@ -4,3 +4,6 @@
 [submodule "xwayland-satellite"]
 	path = xwayland-satellite
 	url = https://github.com/Supreeeme/xwayland-satellite
+[submodule "anyrun"]
+	path = anyrun
+	url = https://github.com/anyrun-org/anyrun
