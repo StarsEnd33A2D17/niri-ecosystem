@@ -1,10 +1,27 @@
 #!/bin/bash
+set -e
 
-NIRI_PATH=./niri/
+PROJECT_ROOT="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-mv $NIRI_PATH/target/release/niri /usr/local/bin/
-cp $NIRI_PATH/resources/niri-session /usr/local/bin/
-cp $NIRI_PATH/resources/niri.desktop /usr/local/share/wayland-sessions/
-cp $NIRI_PATH/resources/niri-portals.conf /usr/local/share/xdg-desktop-portal/
-#cp $NIRI_PATH/resources/niri.service /etc/systemd/user/
-cp $NIRI_PATH/resources/niri-shutdown.target /etc/systemd/user/
+usage() {
+    echo "Usage: $0 [niri|xwayland|all]"
+    exit 1
+}
+
+[[ $# -lt 1 ]] && usage
+
+case "$1" in
+    niri)
+        "$PROJECT_ROOT/install-scripts/niri-copy.sh" "$PROJECT_ROOT/niri"
+        ;;
+    xwayland|satellite)
+        "$PROJECT_ROOT/install-scripts/xwayland-satellite-copy.sh" "$PROJECT_ROOT/xwayland-satellite"
+        ;;
+    all)
+        "$PROJECT_ROOT/install-scripts/niri-copy.sh" "$PROJECT_ROOT/niri"
+        "$PROJECT_ROOT/install-scripts/xwayland-satellite-copy.sh" "$PROJECT_ROOT/xwayland-satellite"
+        ;;
+    *)
+        usage
+        ;;
+esac
