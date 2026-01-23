@@ -1,0 +1,3 @@
+[submodule "niri"]
+	path = niri
+	url = https://github.com/YaLTeR/niri
