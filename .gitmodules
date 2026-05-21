@@ -7,3 +7,6 @@
 [submodule "anyrun"]
 	path = anyrun
 	url = https://github.com/anyrun-org/anyrun
+[submodule "awww"]
+	path = awww
+	url = https://codeberg.org/LGFae/awww
