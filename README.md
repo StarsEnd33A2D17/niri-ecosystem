@@ -15,3 +15,16 @@ libxcb-cursor-dev
 ### anyrun
 
 libgdk-pixbuf2.0-dev libgraphene-1.0-dev librust-gtk4-dev libgtk4-layer-shell-dev
+
+## Nerd Fonts 安装
+
+不克隆仓库，直接下载 Release：
+
+```sh
+curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+mkdir -p ~/.local/share/fonts/NerdFonts
+tar -xf JetBrainsMono.tar.xz -C ~/.local/share/fonts/NerdFonts
+fc-cache -vf
+```
+
+其他字体替换 `JetBrainsMono` 即可。
